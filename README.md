@@ -101,6 +101,20 @@ Implemented two well-known bias correction techniques _before_ feeding NASA data
 **Goal:**  
 Lower final downscaled errors (RMSE, MAE) by correcting input bias before modeling.
 
+#### Model Performance Summary
+
+To quantitatively assess the performance of the different bias correction methods, the following table summarizes the key error metrics for the final downscaled temperature predictions (`air_temperature_k`) over the **2021–2024 validation period**.
+
+| **Correction Method**        | **MAE (°C)** | **RMSE (°C)** | **R² (R-squared)** |
+|-----------------------------|--------------|----------------|--------------------|
+| None (Baseline Downscaling) | 7.72         | 9.59           | 0.41               |
+| Delta Change Method         | 7.25         | 9.10           | 0.50               |
+| Quantile Mapping Method     | 7.26         | 9.09           | 0.50               |
+
+> **Note on R-squared (R²):**  
+> For other variables like **wind speed** and **humidity**, the R² values were often **negative**. A negative R² indicates that the linear model performed **worse than a simple mean prediction**.  
+> This strongly suggests that **linear methods** are insufficient for modeling the complex, non-linear dynamics in this dataset — further justifying the transition toward **more advanced, hybrid modeling approaches** (e.g., SARIMAX-LSTM).
+
 
 #### Step 4: Anomaly Discovery and Diagnosis (The Turning Point)
 
