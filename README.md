@@ -15,7 +15,7 @@ Feel free to explore, fork, or contribute — and please cite appropriately if y
 
 # Temporal Downscaling of CMIP6 Climate Data: A Methodological Analysis
 
-## 1. Project Overview
+### 1. Project Overview
 
 This repository documents the process of developing, validating, and diagnosing a statistical model for **temporal downscaling** of daily **NASA NEX-GDDP-CMIP6 climate data** to an **hourly resolution**.
 
@@ -25,7 +25,7 @@ The project follows a full data science lifecycle — from data ingestion and ba
 To generate accurate, high-resolution **hourly climate data** suitable for **localized impact assessments**, using **ERA5 reanalysis data** as ground truth.
 
 
-## Repository Structure
+### Repository Structure
 /
 |-- data/
 
@@ -53,11 +53,11 @@ To generate accurate, high-resolution **hourly climate data** suitable for **loc
 
 
 
-## 3. The Analysis Workflow: A Narrative of Discovery
+### 3. The Analysis Workflow: A Narrative of Discovery
 
 This project followed a **non-linear, iterative workflow**, where each step’s insights informed the next. It unfolded as a real-world investigation, not a pre-scripted experiment.
 
-### Step 1: Data Processing
+#### Step 1: Data Processing
 
 **Scripts:**  
 - `01_DataProcessing_NASA.ipynb`  
@@ -73,7 +73,7 @@ NASA data = daily stats (`tasmin`, `tasmax`)
 ERA5 data = hourly "ground truth"
 
 
-### Step 2: Initial Downscaling Model
+#### Step 2: Initial Downscaling Model
 
 **Script:**  
 - `03_DownScaling_Baseline.ipynb`
@@ -86,7 +86,7 @@ ERA5 data = hourly "ground truth"
 The model would follow the correct diurnal pattern, matching real-world temperature cycles.
 
 
-### Step 3: Bias Correction Experiments
+#### Step 3: Bias Correction Experiments
 
 **Scripts:**  
 - `04_BiasCorrection_Delta.ipynb`  
@@ -102,7 +102,7 @@ Implemented two well-known bias correction techniques _before_ feeding NASA data
 Lower final downscaled errors (RMSE, MAE) by correcting input bias before modeling.
 
 
-### Step 4: Anomaly Discovery and Diagnosis (The Turning Point)
+#### Step 4: Anomaly Discovery and Diagnosis (The Turning Point)
 
 **Script:**  
 - `06_Anomaly_Diagnosis_and_Validation.ipynb`
@@ -119,7 +119,7 @@ Not a bug, but a **12-hour functional offset**, caused by the model learning to 
 Programmatically shifting output **by -12 hours** corrected the issue entirely.
 
 
-### Step 5: Deeper Analysis of Corrected Data
+#### Step 5: Deeper Analysis of Corrected Data
 
 **Action:**  
 Validated the corrected model across **four years (2021–2024)**.
@@ -133,11 +133,11 @@ Validated the corrected model across **four years (2021–2024)**.
 >  Conclusion: A simple correction like Delta or Quantile Mapping does not generalize across seasons or years.
 
 
-## 4. Overall Conclusion
+### 4. Overall Conclusion
 
 What began as a basic modeling task became a rigorous diagnostic deep-dive.
 
-### Key Takeaways:
+#### Key Takeaways:
 
 1. **Functional Error:**  
    The model had a **12-hour time offset** due to how inputs and outputs were paired — this was fixable with post-processing.
@@ -149,11 +149,11 @@ What began as a basic modeling task became a rigorous diagnostic deep-dive.
 
 ---
 
-## 5. Next Steps
+### 5. Next Steps
 
 The project’s findings provide strong, data-driven motivation for moving to more sophisticated, adaptive models.
 
-### Proposed Next Model: **SARIMax-LSTM**
+#### Proposed Next Model: **SARIMax-LSTM**
 
 - **SARIMax** will handle **seasonality and exogenous predictors**
 - **LSTM** will capture **non-linear, temporal dynamics** (ML part is being done by other team members)
@@ -164,5 +164,4 @@ This hybrid model will be capable of learning the **complex, non-stationary patt
 - Year-specific anomalies
 
 ---
-
-📁 _This work is part of the ongoing `nasa-cmip6-temporal-downscaling-daily2hourly` project. Contributions and collaborations are welcomed._
+ _This work is part of the ongoing `nasa-cmip6-temporal-downscaling-daily2hourly` project. Contributions and collaborations are welcomed._
