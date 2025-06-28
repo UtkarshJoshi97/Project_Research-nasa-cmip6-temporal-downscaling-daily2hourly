@@ -15,8 +15,6 @@ Feel free to explore, fork, or contribute — and please cite appropriately if y
 
 # Temporal Downscaling of CMIP6 Climate Data: A Methodological Analysis
 
----
-
 ## 1. Project Overview
 
 This repository documents the process of developing, validating, and diagnosing a statistical model for **temporal downscaling** of daily **NASA NEX-GDDP-CMIP6 climate data** to an **hourly resolution**.
@@ -26,27 +24,33 @@ The project follows a full data science lifecycle — from data ingestion and ba
 **Primary Objective:**  
 To generate accurate, high-resolution **hourly climate data** suitable for **localized impact assessments**, using **ERA5 reanalysis data** as ground truth.
 
----
 
 ## Repository Structure
 /
 |-- data/
+
 | |-- (Raw and processed ERA5 and NASA data files)
 
 |-- notebooks/
+
 | |-- 01_DataProcessing_NASA.ipynb
+
 | |-- 02_DataProcessing_ERA5.ipynb
+
 | |-- 03_DownScaling_Baseline.ipynb
+
 | |-- 04_BiasCorrection_Delta.ipynb
+
 | |-- 05_BiasCorrection_Quantile.ipynb
+
 | |-- 06_Anomaly_Diagnosis_and_Validation.ipynb
 
 |-- reports/ (may be not going the publish the saved plots on local)
+
 | |-- (Generated plots and summary documents)
 
 |-- README.md
 
----
 
 
 ## 3. The Analysis Workflow: A Narrative of Discovery
